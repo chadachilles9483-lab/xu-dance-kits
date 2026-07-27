@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michelle Lian — Recommended Practice Kit</title>
+
+<!-- Fonts: elegant serif for headlines, clean sans-serif for body text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- All page styling lives in style.css -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     AMAZON LINKS: EDIT HERE
+     This is the ONLY place you need to update your Amazon links.
+     Every button on the page pulls its link from this list.
+     Replace the text inside the quotes with your real Amazon URL.
+     Do not delete the quotes or commas.
+     ============================================================ -->
+<script>
+  const AMAZON_LINKS = {
+    STARTER_KIT_LINK:    "https://www.amazon.com/hz/wishlist/ls/YSS2BEV4MC5I?ref_=wl_share",   // EDIT: Replace this Amazon link
+    RECOVERY_KIT_LINK:   "https://www.amazon.com/hz/wishlist/ls/YPO0DSHI7OE3?ref_=wl_share",   // EDIT: Replace this Amazon link
+    UPGRADE_KIT_LINK:    "https://www.amazon.com/hz/wishlist/ls/2COSIA16KGJHJ?ref_=wl_share",  // EDIT: Replace this Amazon link
+    CATEGORY_MATS_LINK:      "https://www.amazon.com",   // TEMPORARY: goes to Amazon homepage until you make a Mats Idea List — EDIT: Replace this Amazon link
+    CATEGORY_RECOVERY_LINK:  "https://www.amazon.com",   // TEMPORARY: goes to Amazon homepage until you make a Recovery Tools Idea List — EDIT: Replace this Amazon link
+    CATEGORY_SUPPORT_LINK:   "https://www.amazon.com"    // TEMPORARY: goes to Amazon homepage until you make a Support Idea List — EDIT: Replace this Amazon link
+  };
+
+  // This runs automatically after the page loads.
+  // It finds every button with a data-link tag and fills in the real URL.
+  // You do NOT need to edit anything below this line.
+  window.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-link]").forEach(function (el) {
+      const key = el.getAttribute("data-link");
+      if (AMAZON_LINKS[key]) {
+        el.setAttribute("href", AMAZON_LINKS[key]);
+      }
+    });
+  });
+</script>
+
+<div class="wrap">
+
+  <!-- ============================================================
+       HERO SECTION — top of page, first thing visitors see
+       ============================================================ -->
+  <section class="hero">
+    <div class="avatar">ML</div>
+
+    <!-- EDIT: Change this name -->
+    <div class="name">Michelle Lian</div>
+
+    <!-- EDIT: Change this credential line -->
+    <div class="credential">Professional Dancer &amp; Children's Flexibility Coach</div>
+
+    <!-- EDIT: Change this headline -->
+    <h1>My Recommended<br>Practice Kit</h1>
+
+    <!-- EDIT: Change this subheadline -->
+    <p class="subhead">The exact products I recommend for safe, effective home practice.</p>
+
+    <!-- Amazon disclosure — required wording, keep as-is -->
+    <div class="disclosure">As an Amazon Associate I earn from qualifying purchases.</div>
+
+    <div class="rescue"><a href="#categories">Came from a video? See every product &rarr;</a></div>
+  </section>
+
+  <!-- ============================================================
+       KITS SECTION — your 3 curated kits (shown first, most important)
+       ============================================================ -->
+  <section class="section" id="kits">
+    <div class="section-eyebrow">Start Here</div>
+    <div class="section-title">Curated Kits</div>
+
+    <!-- ---------- KIT 1 ---------- -->
+    <div class="kit-card">
+      <!-- EDIT: Update "best for" label -->
+      <div class="best-for">Best for: brand-new students starting home practice</div>
+
+      <!-- EDIT: Update kit name -->
+      <h3>Starter Home Practice Kit</h3>
+
+      <!-- EDIT: Update kit description here -->
+      <p>The simple basics I hand every new student — a mat, blocks, and a stretch band to begin safe practice at home.</p>
+
+      <!-- EDIT: Change button text if you'd like -->
+      <a class="btn" href="#" data-link="STARTER_KIT_LINK" target="_blank" rel="noopener">See the starter items &rarr;</a>
+      <div class="btn-sub">on Amazon</div>
+    </div>
+
+    <!-- ---------- KIT 2 ---------- -->
+    <div class="kit-card">
+      <!-- EDIT: Update "best for" label -->
+      <div class="best-for">Best for: sore muscles &amp; recovery between classes</div>
+
+      <!-- EDIT: Update kit name -->
+      <h3>Recovery &amp; Comfort Kit</h3>
+
+      <!-- EDIT: Update kit description here -->
+      <p>What I recommend for easing tight muscles and sore feet after practice, so your dancer is ready to go again next time.</p>
+
+      <!-- EDIT: Change button text if you'd like -->
+      <a class="btn" href="#" data-link="RECOVERY_KIT_LINK" target="_blank" rel="noopener">See the recovery picks &rarr;</a>
+      <div class="btn-sub">on Amazon</div>
+    </div>
+
+    <!-- ---------- KIT 3 ---------- -->
+    <div class="kit-card">
+      <!-- EDIT: Update "best for" label -->
+      <div class="best-for">Best for: serious students upgrading their home setup</div>
+
+      <!-- EDIT: Update kit name -->
+      <h3>Full Training Upgrade Kit</h3>
+
+      <!-- EDIT: Update kit description here -->
+      <p>A more complete home practice setup for students ready to train seriously between classes.</p>
+
+      <!-- EDIT: Change button text if you'd like -->
+      <a class="btn" href="#" data-link="UPGRADE_KIT_LINK" target="_blank" rel="noopener">See the upgrade items &rarr;</a>
+      <div class="btn-sub">on Amazon</div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       PRODUCT CATEGORIES SECTION — individual product groups
+       ============================================================ -->
+  <section class="section" id="categories">
+    <div class="section-eyebrow">More Picks</div>
+    <div class="section-title">Shop by Category</div>
+
+    <!-- ---------- CATEGORY: MATS & PRACTICE SPACE ---------- -->
+    <div class="category-card">
+      <!-- EDIT: Update category name -->
+      <h4>Mats &amp; Practice Space</h4>
+
+      <!-- EDIT: Add or remove items in this list -->
+      <ul class="item-list">
+        <li>Mini yoga mat</li>
+        <li>Adult yoga mat</li>
+        <li>Yoga blocks</li>
+        <li>Portable dance barre</li>
+        <li>Dance / yoga gear bag</li>
+        <li>Large wall mirror</li>
+      </ul>
+
+      <a class="btn btn-outline" href="#" data-link="CATEGORY_MATS_LINK" target="_blank" rel="noopener">See mats &amp; setup items &rarr;</a>
+      <div class="btn-sub">on Amazon</div>
+    </div>
+
+    <!-- ---------- CATEGORY: RECOVERY ---------- -->
+    <div class="category-card">
+      <!-- EDIT: Update category name -->
+      <h4>Recovery &amp; Flexibility Tools</h4>
+
+      <!-- EDIT: Add or remove items in this list -->
+      <ul class="item-list">
+        <li>Foam roller</li>
+        <li>Foot roller</li>
+        <li>Stretch band / yoga strap</li>
+        <li>Yoga ball / stability ball</li>
+        <li>Ankle / wrist weights</li>
+      </ul>
+
+      <a class="btn btn-outline" href="#" data-link="CATEGORY_RECOVERY_LINK" target="_blank" rel="noopener">See recovery tools &rarr;</a>
+      <div class="btn-sub">on Amazon</div>
+    </div>
+
+    <!-- ---------- CATEGORY: SUPPORT & PROTECTION ---------- -->
+    <div class="category-card">
+      <!-- EDIT: Update category name -->
+      <h4>Support &amp; Protection</h4>
+
+      <!-- EDIT: Add or remove items in this list -->
+      <ul class="item-list">
+        <li>Yoga knee pad / cushion</li>
+        <li>Slim knee pads</li>
+        <li>Lightweight waist support / lumbar warmer</li>
+        <li>Grip socks</li>
+      </ul>
+
+      <a class="btn btn-outline" href="#" data-link="CATEGORY_SUPPORT_LINK" target="_blank" rel="noopener">See support &amp; protection &rarr;</a>
+      <div class="btn-sub">on Amazon</div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       TRUST SECTION
+       ============================================================ -->
+  <section class="section">
+    <div class="section-eyebrow">Why Trust This List</div>
+    <div class="section-title">How I Choose</div>
+    <ul class="trust-list">
+      <!-- EDIT: Update these trust points -->
+      <li><strong>I use it in class or teach it as homework.</strong> Nothing here is a guess — it's what I actually assign my students.</li>
+      <li><strong>I look for safe, age-appropriate design.</strong> Every product is something I'd hand to a 7-year-old.</li>
+      <li><strong>I keep the list short on purpose.</strong> You won't find ten versions of the same thing — just the one I trust.</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       FAQ SECTION
+       ============================================================ -->
+  <section class="section">
+    <div class="section-eyebrow">Questions</div>
+    <div class="section-title">Parent FAQ</div>
+
+    <!-- EDIT: Add, remove, or change FAQ questions below -->
+    <details>
+      <summary>Do I need everything on this page?</summary>
+      <p>No. Start with the Starter Home Practice Kit — that alone covers what most new students need.</p>
+    </details>
+    <details>
+      <summary>Is this appropriate for my child's age?</summary>
+      <p>I teach students ages 7–13 and choose products with that range in mind. Feel free to ask me directly about your specific child.</p>
+    </details>
+    <details>
+      <summary>Do these replace warming up before stretching?</summary>
+      <p>No — these support home practice alongside regular class, not a replacement for warming up first.</p>
+    </details>
+    <details>
+      <summary>Will you get a commission if I buy?</summary>
+      <p>Yes, at no extra cost to you. It's how I keep making free tutorials and homework guides.</p>
+    </details>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <!-- EDIT: Change name -->
+    <div class="brand">Michelle Lian</div>
+    <div>Professional Dancer &amp; Children's Flexibility Coach</div>
+
+    <!-- Required Amazon disclosure — keep this wording -->
+    <p class="full-disclosure">
+      As an Amazon Associate I earn from qualifying purchases. Product prices and availability are accurate as of the date shown on Amazon and are subject to change.
+    </p>
+
+    <!-- EDIT: Social links are hidden for now. To turn them back on, delete the
+         "<!--" right below this line and the "-->" right above "</footer>",
+         then replace the PLACEHOLDER links with your real ones.
+    <div class="social-links">
+      <a href="https://youtube.com/PLACEHOLDER" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://instagram.com/PLACEHOLDER" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:PLACEHOLDER@example.com">Contact</a>
+    </div>
+    -->
+  </footer>
+
+</div>
+
+</body>
+</html>
