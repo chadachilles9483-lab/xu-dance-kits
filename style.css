@@ -1,0 +1,201 @@
+/* ============================================================
+   STYLE.CSS
+   All visual styling for the page lives here.
+   Colors are defined once at the top under :root — change them
+   there and they update everywhere on the page automatically.
+   ============================================================ */
+
+:root{
+  /* EDIT: Change these to change your whole color scheme */
+  --bg:#FBF4EF;            /* page background (warm ivory) */
+  --card-bg:#FDF8F5;       /* card background */
+  --accent:#C08497;        /* main accent color (buttons, links) */
+  --accent-dark:#A66A7C;   /* darker accent (button shadow, small text links) */
+  --sage:#9CAF93;          /* secondary accent (labels, icons) */
+  --text:#2E2A28;          /* main text color */
+  --text-soft:#5B5451;     /* softer/secondary text color */
+
+  --radius-lg:24px;
+  --radius-pill:999px;
+  --max-w:480px;           /* max page width, keeps it centered on desktop */
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+  font-weight:300;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+
+h1,h2,h3,h4{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+  color:var(--text);
+  line-height:1.2;
+}
+
+a{color:var(--accent-dark);text-decoration:none;}
+
+/* ---------- HERO ---------- */
+.hero{padding:48px 0 32px;text-align:center;}
+
+.avatar{
+  width:88px;height:88px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--sage));
+  margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;
+  box-shadow:0 6px 18px rgba(160,110,120,0.25);
+}
+
+.hero .name{font-size:15px;font-weight:500;letter-spacing:0.02em;margin-bottom:2px;}
+.hero .credential{font-size:13px;color:var(--text-soft);margin-bottom:20px;}
+.hero h1{font-size:30px;margin-bottom:8px;}
+.hero .subhead{font-size:15.5px;color:var(--text-soft);margin-bottom:18px;font-weight:400;}
+
+.disclosure{
+  font-size:11.5px;color:var(--text-soft);
+  background:rgba(192,132,151,0.08);
+  border-radius:var(--radius-pill);
+  display:inline-block;padding:6px 16px;
+  margin-bottom:10px;
+}
+
+.rescue{font-size:13px;margin-top:4px;}
+.rescue a{border-bottom:1px solid var(--accent);}
+
+/* ---------- SECTION LABELS ---------- */
+.section{padding:40px 0 8px;}
+
+.section-eyebrow{
+  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--sage);font-weight:500;text-align:center;margin-bottom:6px;
+}
+
+.section-title{font-size:22px;text-align:center;margin-bottom:22px;}
+
+/* ---------- KIT CARDS ---------- */
+.kit-card{
+  background:var(--card-bg);
+  border-radius:var(--radius-lg);
+  padding:26px 22px;
+  margin-bottom:20px;
+  box-shadow:0 8px 24px rgba(160,110,120,0.10);
+}
+
+.best-for{
+  font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent-dark);font-weight:600;margin-bottom:6px;
+}
+
+.kit-card h3{font-size:21px;margin-bottom:8px;}
+.kit-card p{font-size:14.5px;color:var(--text-soft);margin-bottom:18px;}
+
+/* ---------- CATEGORY CARDS ---------- */
+.category-card{
+  background:var(--card-bg);
+  border-radius:var(--radius-lg);
+  padding:22px 22px;
+  margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(160,110,120,0.08);
+}
+
+.category-card h4{font-size:17px;margin-bottom:10px;}
+
+.item-list{
+  list-style:none;
+  margin-bottom:16px;
+}
+
+.item-list li{
+  font-size:13.5px;
+  color:var(--text-soft);
+  padding:5px 0;
+}
+
+.item-list li::before{
+  content:"— ";
+  color:var(--sage);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:block;width:100%;text-align:center;
+  background:var(--accent);color:#fff;
+  font-family:'Poppins',sans-serif;font-size:15px;font-weight:500;
+  padding:15px 20px;border-radius:var(--radius-pill);
+  box-shadow:0 6px 16px rgba(192,132,151,0.35);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.btn:active{transform:scale(0.98);}
+
+/* Outline button style used for category links (secondary priority to kits) */
+.btn-outline{
+  background:transparent;
+  color:var(--accent-dark);
+  border:1.5px solid var(--accent);
+  box-shadow:none;
+}
+
+.btn-sub{
+  text-align:center;font-size:11.5px;color:var(--text-soft);
+  margin-top:8px;
+}
+
+/* ---------- TRUST ---------- */
+.trust-list{list-style:none;}
+
+.trust-list li{
+  font-size:14.5px;color:var(--text-soft);
+  margin-bottom:16px;padding-left:26px;position:relative;
+}
+
+.trust-list li::before{
+  content:"\2726";
+  position:absolute;left:0;top:1px;
+  color:var(--accent);font-size:13px;
+}
+
+.trust-list strong{color:var(--text);font-weight:500;}
+
+/* ---------- FAQ ---------- */
+details{
+  border-bottom:1px solid rgba(46,42,40,0.1);
+  padding:14px 0;
+}
+
+summary{
+  font-size:14.5px;font-weight:500;color:var(--text);
+  cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+}
+
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";font-size:18px;color:var(--accent);font-weight:300;}
+details[open] summary::after{content:"\2013";}
+
+details p{font-size:13.5px;color:var(--text-soft);margin-top:10px;}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;padding:44px 24px 40px;
+  font-size:12px;color:var(--text-soft);
+}
+
+footer .brand{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);margin-bottom:6px;}
+footer .full-disclosure{margin:14px 0;line-height:1.6;}
+
+.social-links{margin-top:12px;}
+.social-links a{margin:0 8px;font-size:12.5px;color:var(--accent-dark);}
+
+/* ---------- DIVIDER ---------- */
+hr.divider{
+  border:none;height:1px;background:rgba(46,42,40,0.08);
+  max-width:var(--max-w);margin:8px auto;
+}
