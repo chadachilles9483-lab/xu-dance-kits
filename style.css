@@ -1,3 +1,4 @@
+
 /* ============================================================
    STYLE.CSS
    All visual styling for the page lives here.
@@ -125,7 +126,7 @@ a{color:var(--accent-dark);text-decoration:none;}
 /* small "Affiliate links below." note placed right above the product cards,
    so the disclosure stays close to the actual links (FTC-friendly placement) */
 .affiliate-note{
-  font-size:11px;color:var(--text-soft);
+  font-size:9px;color:var(--text-soft);
   text-align:center;text-transform:uppercase;letter-spacing:0.06em;
   margin-bottom:14px;
 }
@@ -151,9 +152,9 @@ a{color:var(--accent-dark);text-decoration:none;}
    Each individual item (mat, blocks, strap, etc.) is its own
    rounded, soft-shadow card — same generous rounding and light
    shadow-only style as the original design (no hard borders).
-   Title sits up top, note below it, and the "View on Amazon"
-   pill button is pinned to the bottom so buttons line up evenly
-   across neighboring cards. */
+   Visual order (set below with the CSS `order` property, not by
+   moving anything in the HTML): name bubble → Amazon button →
+   short note underneath. */
 .product-card{
   background:#FFFFFF;
   border-radius:var(--radius-lg);
@@ -161,32 +162,43 @@ a{color:var(--accent-dark);text-decoration:none;}
   box-shadow:0 6px 18px rgba(160,110,120,0.08);
   display:flex;
   flex-direction:column;
-  align-items:stretch;
+  align-items:center;
   text-align:center;
 }
  
-/* EDIT: Change product name here (in the HTML) — this only controls the look */
+/* EDIT: Change product name here (in the HTML) — this only controls the look.
+   Styled as its own small rounded "bubble" — Times New Roman, soft
+   tinted background, with the same hover interaction as the Amazon
+   button. order:1 keeps it visually first even though re-ordering
+   is handled here in CSS, not by moving anything in the HTML. */
 .product-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;
-  font-weight:600;
-  color:var(--text);
-  line-height:1.25;
-  margin-bottom:6px;
+  order:1;
+  font-family:'Times New Roman', Times, serif;
+  font-size:16px;
+  font-weight:700;
+  color:var(--accent-dark);
+  line-height:1.3;
+  display:inline-block;
+  background:rgba(192,132,151,0.12);
+  border:1px solid rgba(192,132,151,0.25);
+  padding:6px 18px;
+  border-radius:var(--radius-pill);
+  margin:0 auto 14px;
+  transition:background-color .15s ease, transform .15s ease, box-shadow .15s ease;
 }
  
-/* EDIT: Change product note here (in the HTML) — this only controls the look */
-.product-why{
-  font-size:13px;
-  color:var(--text-soft);
-  line-height:1.5;
-  margin-bottom:20px;
+.product-name:hover{
+  background:rgba(192,132,151,0.22);
+  transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(192,132,151,0.20);
 }
  
 /* EDIT: Change button text here (in the HTML) — this only controls the look.
    Affiliate links still come from the data-link / AMAZON_LINKS system —
-   nothing about that is touched here. */
+   nothing about that is touched here. order:2 so the button sits
+   right under the name bubble. */
 .product-btn{
+  order:2;
   display:block;
   width:100%;
   text-align:center;
@@ -201,8 +213,17 @@ a{color:var(--accent-dark);text-decoration:none;}
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  margin-top:auto;
   transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+ 
+/* EDIT: Change product note here (in the HTML) — this only controls the look.
+   order:3 moves this note to its own row underneath the button. */
+.product-why{
+  order:3;
+  font-size:13px;
+  color:var(--text-soft);
+  line-height:1.5;
+  margin-top:14px;
 }
  
 /* Interactive feel: button lifts slightly and deepens in color on
