@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michelle Lian — Recommended Practice Products</title>
+
+<!-- Fonts: elegant serif for headlines, clean sans-serif for body text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- All page styling lives in style.css -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     AMAZON PRODUCT LINKS: EDIT HERE
+     ============================================================
+     This is the ONLY place you need to paste your affiliate links.
+     Every product button on the page pulls its link from this list.
+
+     HOW TO EDIT:
+     1. Get your direct Amazon affiliate link for each product
+        (Amazon Associates Central > Product Links > Get Link).
+     2. Replace the text between the quotes with your real link.
+     3. Do NOT delete the quotes or the commas.
+     4. Leave everything below the "STOP EDITING HERE" line alone.
+
+     Each name below matches the bracket label your strategist gave you,
+     e.g. [STARTER_MAT_LINK], so it's easy to find the right spot.
+     ============================================================ -->
+<script>
+  const AMAZON_LINKS = {
+
+    // ---------- KIT 1: STARTER HOME PRACTICE KIT ----------
+    STARTER_MAT_LINK:        "#",   // EDIT: Replace affiliate link — [STARTER_MAT_LINK] — Yoga mat
+    STARTER_BLOCKS_LINK:     "#",   // EDIT: Replace affiliate link — [STARTER_BLOCKS_LINK] — Yoga blocks
+    STARTER_STRAP_LINK:      "#",   // EDIT: Replace affiliate link — [STARTER_STRAP_LINK] — Stretch band / yoga strap
+    STARTER_FOOTROLLER_LINK: "#",   // EDIT: Replace affiliate link — [STARTER_FOOTROLLER_LINK] — Foot roller
+
+    // ---------- KIT 2: RECOVERY & COMFORT KIT ----------
+    RECOVERY_KNEEPADS_LINK:  "#",   // EDIT: Replace affiliate link — [RECOVERY_KNEEPADS_LINK] — Slim knee pads
+    RECOVERY_WAIST_LINK:     "#",   // EDIT: Replace affiliate link — [RECOVERY_WAIST_LINK] — Lightweight waist support / lumbar warmer
+    RECOVERY_FOAMROLLER_LINK:"#",   // EDIT: Replace affiliate link — [RECOVERY_FOAMROLLER_LINK] — Foam roller
+
+    // ---------- KIT 3: FULL TRAINING UPGRADE KIT ----------
+    UPGRADE_BARRE_LINK:      "#",   // EDIT: Replace affiliate link — [UPGRADE_BARRE_LINK] — Portable dance barre
+    UPGRADE_WEIGHTS_LINK:    "#",   // EDIT: Replace affiliate link — [UPGRADE_WEIGHTS_LINK] — Ankle / wrist weights
+    UPGRADE_SOCKS_LINK:      "#",   // EDIT: Replace affiliate link — [UPGRADE_SOCKS_LINK] — Grip socks
+    UPGRADE_BAG_LINK:        "#",   // EDIT: Replace affiliate link — [UPGRADE_BAG_LINK] — Dance / yoga gear bag
+
+    // ---------- OPTIONAL: kit-level "see the full list" links ----------
+    // These are optional secondary links shown under each kit. If you don't
+    // have an Amazon Idea List / Storefront link for a kit, just leave "#" —
+    // the small text link will still show but won't go anywhere useful, so
+    // it's best to either fill these in or delete the .kit-fulllist block
+    // for that kit further down in the HTML.
+    STARTER_KIT_FULLLIST_LINK:  "#",   // EDIT: Optional — full Starter Kit list link
+    RECOVERY_KIT_FULLLIST_LINK: "#",   // EDIT: Optional — full Recovery Kit list link
+    UPGRADE_KIT_FULLLIST_LINK:  "#"    // EDIT: Optional — full Upgrade Kit list link
+
+  };
+  // ---------------------- STOP EDITING HERE ----------------------
+
+  // This runs automatically after the page loads.
+  // It finds every link with a data-link tag and fills in the real URL.
+  // You do NOT need to edit anything below this line.
+  window.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-link]").forEach(function (el) {
+      const key = el.getAttribute("data-link");
+      if (AMAZON_LINKS[key]) {
+        el.setAttribute("href", AMAZON_LINKS[key]);
+      }
+    });
+  });
+</script>
+
+<div class="wrap">
+
+  <!-- ============================================================
+       HERO SECTION — top of page, first thing visitors see
+       ============================================================ -->
+  <section class="hero">
+    <div class="avatar">ML</div>
+
+    <!-- EDIT: Change this name -->
+    <div class="name">Michelle Lian</div>
+
+    <!-- EDIT: Change this credential line -->
+    <div class="credential">Professional Dancer &amp; Children's Flexibility Coach</div>
+
+    <!-- EDIT: Change this headline -->
+    <h1>My Recommended<br>Practice Products</h1>
+
+    <!-- EDIT: Change this subheadline -->
+    <p class="subhead">The exact products I recommend for safe, effective home practice — organized by kit.</p>
+
+    <!-- Required Amazon disclosure — keep this wording, keep it near the top -->
+    <div class="disclosure">As an Amazon Associate I earn from qualifying purchases.</div>
+  </section>
+
+  <!-- EDIT: Change this short intro sentence, or remove the whole <p> if you don't want one -->
+  <p class="intro">Tap any product below to see it on Amazon. Start with the kit that matches where your dancer is right now.</p>
+
+  <!-- ============================================================
+       KIT 1 — STARTER HOME PRACTICE KIT
+       ============================================================ -->
+  <section class="section kit-block" id="starter-kit">
+    <!-- EDIT: Update "best for" label -->
+    <div class="best-for">Best for: brand-new students starting home practice</div>
+
+    <!-- EDIT: Change kit name here -->
+    <h3>Starter Home Practice Kit</h3>
+
+    <!-- EDIT: Change kit description here -->
+    <p class="kit-desc">The simple basics I hand every new student — a mat, blocks, and a stretch band to begin safe practice at home.</p>
+
+    <!-- Disclosure reminder placed right above the product cards, so it's
+         visible BEFORE a visitor can click any product link in this kit -->
+    <div class="affiliate-note">Affiliate links below.</div>
+
+    <!-- ============================================================
+         PRODUCT CARD GRID — stacks 1-per-row on mobile,
+         2-per-row on larger screens. Add/remove whole
+         <div class="product-card">...</div> blocks to add/remove items. -->
+    <div class="product-grid">
+
+      <!-- ---------- Product 1: Yoga mat ---------- -->
+      <div class="product-card">
+        <!-- EDIT: Change product name here -->
+        <span class="product-name">Yoga Mat</span>
+        <!-- EDIT: Change product note here -->
+        <span class="product-why">For a soft, non-slip surface to stretch on at home</span>
+        <!-- EDIT: Replace affiliate link here (data-link key) / change button text here -->
+        <a class="product-btn" href="#" data-link="STARTER_MAT_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+      <!-- ---------- Product 2: Yoga blocks ---------- -->
+      <div class="product-card">
+        <span class="product-name">Yoga Blocks</span>
+        <span class="product-why">To support proper form while stretching</span>
+        <a class="product-btn" href="#" data-link="STARTER_BLOCKS_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+      <!-- ---------- Product 3: Stretch band / yoga strap ---------- -->
+      <div class="product-card">
+        <span class="product-name">Stretch Band / Yoga Strap</span>
+        <span class="product-why">To safely deepen a stretch without forcing it</span>
+        <a class="product-btn" href="#" data-link="STARTER_STRAP_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+       <!-- ---------- Product 4: Foam roller ---------- -->
+      <div class="product-card">
+        <span class="product-name">Foam Roller</span>
+        <span class="product-why">For tight legs after a long practice</span>
+        <a class="product-btn" href="#" data-link="RECOVERY_FOAMROLLER_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+    </div>
+
+    <!-- OPTIONAL: kit-level "see it all in one list" link. Delete this whole
+         <div class="kit-fulllist">...</div> block if you don't want it.
+         This is a small secondary text link only — the product cards above
+         stay the main clickable elements. -->
+    <div class="kit-fulllist">
+      <a href="#" data-link="STARTER_KIT_FULLLIST_LINK" target="_blank" rel="noopener sponsored">See the full Starter Kit list &rarr;</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       KIT 2 — RECOVERY & COMFORT KIT
+       ============================================================ -->
+  <section class="section kit-block" id="recovery-kit">
+    <!-- EDIT: Update "best for" label -->
+    <div class="best-for">Best for: sore muscles &amp; recovery between classes</div>
+
+    <!-- EDIT: Change kit name here -->
+    <h3>Recovery &amp; Comfort Kit</h3>
+
+    <!-- EDIT: Change kit description here -->
+    <p class="kit-desc">What I recommend for easing tight muscles and sore knees after practice, so your dancer is ready to go again next time.</p>
+
+    <div class="affiliate-note">Affiliate links below.</div>
+
+    <div class="product-grid">
+
+      <!-- ---------- Product 1: Slim knee pads ---------- -->
+      <div class="product-card">
+        <!-- EDIT: Change product name here -->
+        <span class="product-name">Slim Knee Pads</span>
+        <!-- EDIT: Change product note here -->
+        <span class="product-why">To protect knees during floor work and stretching</span>
+        <!-- EDIT: Replace affiliate link here (data-link key) / change button text here -->
+        <a class="product-btn" href="#" data-link="RECOVERY_KNEEPADS_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+      <!-- ---------- Product 2: Lightweight waist support / lumbar warmer ---------- -->
+      <div class="product-card">
+        <span class="product-name">Lightweight Waist Support</span>
+        <span class="product-why">A gentle lumbar warmer for comfort during backbend work</span>
+        <a class="product-btn" href="#" data-link="RECOVERY_WAIST_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+     <!-- ---------- Product 3: Foot roller ---------- -->
+      <div class="product-card">
+        <span class="product-name">Foot Roller</span>
+        <span class="product-why">To ease tired feet after practice</span>
+        <a class="product-btn" href="#" data-link="STARTER_FOOTROLLER_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+    </div>
+
+    <div class="kit-fulllist">
+      <a href="#" data-link="RECOVERY_KIT_FULLLIST_LINK" target="_blank" rel="noopener sponsored">See the full Recovery Kit list &rarr;</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       KIT 3 — FULL TRAINING UPGRADE KIT
+       ============================================================ -->
+  <section class="section kit-block" id="upgrade-kit">
+    <!-- EDIT: Update "best for" label -->
+    <div class="best-for">Best for: serious students upgrading their home setup</div>
+
+    <!-- EDIT: Change kit name here -->
+    <h3>Full Training Upgrade Kit</h3>
+
+    <!-- EDIT: Change kit description here -->
+    <p class="kit-desc">A more complete home practice setup for students ready to train seriously between classes.</p>
+
+    <div class="affiliate-note">Affiliate links below.</div>
+
+    <div class="product-grid">
+
+      <!-- ---------- Product 1: Portable dance barre ---------- -->
+      <div class="product-card">
+        <!-- EDIT: Change product name here -->
+        <span class="product-name">Portable Dance Barre</span>
+        <!-- EDIT: Change product note here -->
+        <span class="product-why">For practicing at home without a studio</span>
+        <!-- EDIT: Replace affiliate link here (data-link key) / change button text here -->
+        <a class="product-btn" href="#" data-link="UPGRADE_BARRE_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+      <!-- ---------- Product 2: Ankle / wrist weights ---------- -->
+      <div class="product-card">
+        <span class="product-name">Ankle / Wrist Weights</span>
+        <span class="product-why">To add light resistance for strength-focused drills</span>
+        <a class="product-btn" href="#" data-link="UPGRADE_WEIGHTS_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+      <!-- ---------- Product 3: Grip socks ---------- -->
+      <div class="product-card">
+        <span class="product-name">Grip Socks</span>
+        <span class="product-why">For safe footing on hard floors at home</span>
+        <a class="product-btn" href="#" data-link="UPGRADE_SOCKS_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+      <!-- ---------- Product 4: Dance / yoga gear bag ---------- -->
+      <div class="product-card">
+        <span class="product-name">Dance / Yoga Gear Bag</span>
+        <span class="product-why">To keep everything organized for class and practice</span>
+        <a class="product-btn" href="#" data-link="UPGRADE_BAG_LINK" target="_blank" rel="noopener sponsored">View on Amazon</a>
+      </div>
+
+    </div>
+
+    <div class="kit-fulllist">
+      <a href="#" data-link="UPGRADE_KIT_FULLLIST_LINK" target="_blank" rel="noopener sponsored">See the full Upgrade Kit list &rarr;</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       FAQ SECTION
+       ============================================================ -->
+  <section class="section">
+    <div class="section-eyebrow">Questions</div>
+    <div class="section-title">Parent FAQ</div>
+
+    <!-- EDIT: Add, remove, or change FAQ questions below -->
+    <details>
+      <summary>Do I need everything on this page?</summary>
+      <p>No. Start with the Starter Home Practice Kit — that alone covers what most new students need.</p>
+    </details>
+    <details>
+      <summary>Is this appropriate for my child's age?</summary>
+      <p>I teach students ages 7–13 and choose products with that range in mind. Feel free to ask me directly about your specific child.</p>
+    </details>
+    <details>
+      <summary>Do these replace warming up before stretching?</summary>
+      <p>No — these support home practice alongside regular class, not a replacement for warming up first.</p>
+    </details>
+    <details>
+      <summary>Will you get a commission if I buy?</summary>
+      <p>Yes, at no extra cost to you. It's how I keep making free tutorials and homework guides.</p>
+    </details>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================================================
+       DISCLOSURE SECTION — full, clearly-labeled disclosure.
+       Keep this exact required sentence somewhere visible on the page.
+       ============================================================ -->
+  <section class="section">
+    <div class="section-eyebrow">Disclosure</div>
+    <div class="disclosure-section">
+      <!-- Required Amazon wording — do not change this sentence -->
+      <p><strong>As an Amazon Associate I earn from qualifying purchases.</strong><br>
+      Product prices and availability shown on Amazon are accurate as of the date you view them and are subject to change. All product links on this page are affiliate links.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <!-- EDIT: Change name -->
+    <div class="brand">Michelle Lian</div>
+    <div>Professional Dancer &amp; Children's Flexibility Coach</div>
+
+    <!-- Required Amazon disclosure — keep this wording -->
+    <p class="full-disclosure">
+      As an Amazon Associate I earn from qualifying purchases. Product prices and availability are accurate as of the date shown on Amazon and are subject to change.
+    </p>
+
+    <!-- EDIT: Social links are hidden for now. To turn them back on, delete the
+         "<!--" right below this line and the "-->" right above "</footer>",
+         then replace the PLACEHOLDER links with your real ones.
+    <div class="social-links">
+      <a href="https://youtube.com/PLACEHOLDER" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://instagram.com/PLACEHOLDER" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:PLACEHOLDER@example.com">Contact</a>
+    </div>
+    -->
+  </footer>
+
+</div>
+
+</body>
+</html>
