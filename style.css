@@ -4,7 +4,7 @@
    Colors are defined once at the top under :root — change them
    there and they update everywhere on the page automatically.
    ============================================================ */
-
+ 
 :root{
   /* EDIT: Change these to change your whole color scheme */
   --bg:#FBF4EF;            /* page background (warm ivory) */
@@ -14,37 +14,57 @@
   --sage:#9CAF93;          /* secondary accent (labels, icons) */
   --text:#2E2A28;          /* main text color */
   --text-soft:#5B5451;     /* softer/secondary text color */
-
+ 
   --radius-lg:24px;
   --radius-pill:999px;
   --max-w:480px;           /* max page width, keeps it centered on desktop */
 }
-
+ 
 *{box-sizing:border-box;margin:0;padding:0;}
-
+ 
+html{
+  /* Keeps everything centered and prevents any stray sideways
+     scroll on small phones — the #1 thing that makes a mobile
+     page feel un-centered / broken. */
+  width:100%;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+ 
 body{
+  width:100%;
+  min-height:100vh;
   background:var(--bg);
   color:var(--text);
   font-family:'Poppins',sans-serif;
   font-weight:300;
   line-height:1.55;
   -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent; /* removes the gray flash on mobile taps, feels more premium */
 }
-
-.wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
-
+ 
+/* .wrap is the single centering container used on every section —
+   max-width + auto side margins keeps all content centered on any
+   screen size, from a small phone up to a wide desktop monitor. */
+.wrap{
+  width:100%;
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:0 24px;
+}
+ 
 h1,h2,h3,h4{
   font-family:'Cormorant Garamond',serif;
   font-weight:600;
   color:var(--text);
   line-height:1.2;
 }
-
+ 
 a{color:var(--accent-dark);text-decoration:none;}
-
+ 
 /* ---------- HERO ---------- */
-.hero{padding:48px 0 32px;text-align:center;}
-
+.hero{padding:48px 0 28px;text-align:center;}
+ 
 .avatar{
   width:88px;height:88px;border-radius:50%;
   background:linear-gradient(135deg,var(--accent),var(--sage));
@@ -53,12 +73,14 @@ a{color:var(--accent-dark);text-decoration:none;}
   color:#fff;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;
   box-shadow:0 6px 18px rgba(160,110,120,0.25);
 }
-
+ 
 .hero .name{font-size:15px;font-weight:500;letter-spacing:0.02em;margin-bottom:2px;}
 .hero .credential{font-size:13px;color:var(--text-soft);margin-bottom:20px;}
-.hero h1{font-size:30px;margin-bottom:8px;}
+/* clamp() lets the headline scale smoothly between phone and desktop
+   instead of jumping at a breakpoint — small premium touch */
+.hero h1{font-size:clamp(26px, 6vw, 32px);margin-bottom:8px;letter-spacing:0.01em;}
 .hero .subhead{font-size:15.5px;color:var(--text-soft);margin-bottom:18px;font-weight:400;}
-
+ 
 .disclosure{
   font-size:11.5px;color:var(--text-soft);
   background:rgba(192,132,151,0.08);
@@ -66,136 +88,221 @@ a{color:var(--accent-dark);text-decoration:none;}
   display:inline-block;padding:6px 16px;
   margin-bottom:10px;
 }
-
-.rescue{font-size:13px;margin-top:4px;}
-.rescue a{border-bottom:1px solid var(--accent);}
-
+ 
+.intro{font-size:14.5px;color:var(--text-soft);text-align:center;margin-bottom:6px;}
+ 
 /* ---------- SECTION LABELS ---------- */
 .section{padding:40px 0 8px;}
-
+ 
 .section-eyebrow{
   font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
   color:var(--sage);font-weight:500;text-align:center;margin-bottom:6px;
 }
-
+ 
 .section-title{font-size:22px;text-align:center;margin-bottom:22px;}
-
-/* ---------- KIT CARDS ---------- */
-.kit-card{
+ 
+/* ---------- KIT BLOCK ----------
+   Each of the 3 kits (Starter, Recovery, Upgrade) sits inside its
+   own big rounded card — same soft, borderless card look as the
+   original design (shadow only, no outline, generous padding). */
+.kit-block{
   background:var(--card-bg);
   border-radius:var(--radius-lg);
+  box-shadow:0 8px 24px rgba(160,110,120,0.10);
   padding:26px 22px;
   margin-bottom:20px;
-  box-shadow:0 8px 24px rgba(160,110,120,0.10);
 }
-
+ 
 .best-for{
   font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--accent-dark);font-weight:600;margin-bottom:6px;
+  text-align:center;
 }
-
-.kit-card h3{font-size:21px;margin-bottom:8px;}
-.kit-card p{font-size:14.5px;color:var(--text-soft);margin-bottom:18px;}
-
-/* ---------- CATEGORY CARDS ---------- */
-.category-card{
-  background:var(--card-bg);
+ 
+.kit-block h3{font-size:21px;margin-bottom:8px;text-align:center;}
+.kit-block p.kit-desc{font-size:14.5px;color:var(--text-soft);margin-bottom:18px;text-align:center;}
+ 
+/* small "Affiliate links below." note placed right above the product cards,
+   so the disclosure stays close to the actual links (FTC-friendly placement) */
+.affiliate-note{
+  font-size:11px;color:var(--text-soft);
+  text-align:center;text-transform:uppercase;letter-spacing:0.06em;
+  margin-bottom:14px;
+}
+ 
+/* ---------- PRODUCT CARD GRID ----------
+   Wraps all the product cards inside one kit section.
+   Mobile: 1 column (cards stack vertically).
+   Desktop / tablets 480px+: 2 columns, if there's room. */
+.product-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-bottom:10px;
+}
+ 
+@media (min-width:480px){
+  .product-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+ 
+/* ---------- PRODUCT CARDS ----------
+   Each individual item (mat, blocks, strap, etc.) is its own
+   rounded, soft-shadow card — same generous rounding and light
+   shadow-only style as the original design (no hard borders).
+   Title sits up top, note below it, and the "View on Amazon"
+   pill button is pinned to the bottom so buttons line up evenly
+   across neighboring cards. */
+.product-card{
+  background:#FFFFFF;
   border-radius:var(--radius-lg);
-  padding:22px 22px;
-  margin-bottom:18px;
+  padding:24px 20px 20px;
   box-shadow:0 6px 18px rgba(160,110,120,0.08);
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  text-align:center;
 }
-
-.category-card h4{font-size:17px;margin-bottom:10px;}
-
-.item-list{
-  list-style:none;
-  margin-bottom:16px;
+ 
+/* EDIT: Change product name here (in the HTML) — this only controls the look */
+.product-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;
+  font-weight:600;
+  color:var(--text);
+  line-height:1.25;
+  margin-bottom:6px;
 }
-
-.item-list li{
-  font-size:13.5px;
+ 
+/* EDIT: Change product note here (in the HTML) — this only controls the look */
+.product-why{
+  font-size:13px;
   color:var(--text-soft);
-  padding:5px 0;
+  line-height:1.5;
+  margin-bottom:20px;
 }
-
-.item-list li::before{
-  content:"— ";
-  color:var(--sage);
-}
-
-/* ---------- BUTTONS ---------- */
-.btn{
-  display:block;width:100%;text-align:center;
-  background:var(--accent);color:#fff;
-  font-family:'Poppins',sans-serif;font-size:15px;font-weight:500;
-  padding:15px 20px;border-radius:var(--radius-pill);
+ 
+/* EDIT: Change button text here (in the HTML) — this only controls the look.
+   Affiliate links still come from the data-link / AMAZON_LINKS system —
+   nothing about that is touched here. */
+.product-btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  background:var(--accent);
+  color:#fff;
+  font-family:'Poppins',sans-serif;
+  font-size:15px;
+  font-weight:500;
+  padding:15px 20px;
+  border-radius:var(--radius-pill);
   box-shadow:0 6px 16px rgba(192,132,151,0.35);
-  transition:transform .15s ease, box-shadow .15s ease;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  margin-top:auto;
+  transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
 }
-
-.btn:active{transform:scale(0.98);}
-
-/* Outline button style used for category links (secondary priority to kits) */
-.btn-outline{
-  background:transparent;
+ 
+/* Interactive feel: button lifts slightly and deepens in color on
+   hover (desktop/trackpad), and presses down on tap (mobile). */
+.product-btn:hover{
+  background:var(--accent-dark);
+  box-shadow:0 8px 20px rgba(192,132,151,0.45);
+  transform:translateY(-1px);
+}
+ 
+.product-btn:active{
+  transform:scale(0.98);
+  box-shadow:0 4px 10px rgba(192,132,151,0.30);
+}
+ 
+/* ---------- OPTIONAL KIT-LEVEL LINK ---------- */
+.kit-fulllist{
+  text-align:center;
+  margin-top:4px;
+}
+ 
+.kit-fulllist a{
+  font-size:12.5px;
   color:var(--accent-dark);
-  border:1.5px solid var(--accent);
-  box-shadow:none;
+  border-bottom:1px solid var(--accent);
+  padding-bottom:1px;
+  transition:color .15s ease, border-color .15s ease;
 }
-
-.btn-sub{
-  text-align:center;font-size:11.5px;color:var(--text-soft);
-  margin-top:8px;
+ 
+.kit-fulllist a:hover{
+  color:var(--text);
+  border-color:var(--accent-dark);
 }
-
+ 
 /* ---------- TRUST ---------- */
 .trust-list{list-style:none;}
-
+ 
 .trust-list li{
   font-size:14.5px;color:var(--text-soft);
   margin-bottom:16px;padding-left:26px;position:relative;
 }
-
+ 
 .trust-list li::before{
   content:"\2726";
   position:absolute;left:0;top:1px;
   color:var(--accent);font-size:13px;
 }
-
+ 
 .trust-list strong{color:var(--text);font-weight:500;}
-
+ 
 /* ---------- FAQ ---------- */
 details{
   border-bottom:1px solid rgba(46,42,40,0.1);
   padding:14px 0;
 }
-
+ 
 summary{
   font-size:14.5px;font-weight:500;color:var(--text);
   cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
 }
-
+ 
 summary::-webkit-details-marker{display:none;}
 summary::after{content:"+";font-size:18px;color:var(--accent);font-weight:300;}
 details[open] summary::after{content:"\2013";}
-
+ 
 details p{font-size:13.5px;color:var(--text-soft);margin-top:10px;}
-
+ 
 /* ---------- FOOTER ---------- */
 footer{
   text-align:center;padding:44px 24px 40px;
   font-size:12px;color:var(--text-soft);
 }
-
+ 
 footer .brand{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);margin-bottom:6px;}
 footer .full-disclosure{margin:14px 0;line-height:1.6;}
-
+ 
 .social-links{margin-top:12px;}
 .social-links a{margin:0 8px;font-size:12.5px;color:var(--accent-dark);}
-
+ 
 /* ---------- DIVIDER ---------- */
 hr.divider{
   border:none;height:1px;background:rgba(46,42,40,0.08);
   max-width:var(--max-w);margin:8px auto;
 }
+ 
+/* ---------- DISCLOSURE SECTION ---------- */
+/* A dedicated, clearly-labeled section (separate from the small footer
+   disclosure) so the required Amazon statement is easy to find on its own. */
+.disclosure-section{
+  background:var(--card-bg);
+  border-radius:var(--radius-lg);
+  padding:22px 22px;
+  text-align:center;
+  margin-bottom:8px;
+}
+ 
+.disclosure-section p{
+  font-size:13.5px;
+  color:var(--text-soft);
+  line-height:1.6;
+}
+ 
+.disclosure-section strong{color:var(--text);}
